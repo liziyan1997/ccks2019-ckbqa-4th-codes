@@ -20,7 +20,10 @@
   ### 将PKUBASE知识库搭建在本地服务器
   1. 下载neo4j图数据库的linux版本，地址https://neo4j.com/ ，上传到服务器上解压即可。配置好conf，具体参考https://blog.csdn.net/u013946356/article/details/81736232 
   2. 使用大规模导入工具 ./neo4j-admin import 来导入知识库，这里需要把PKUBASE知识库源文件处理成一定格式，参考：生成neo4j文件和各种词典.ipynb
+  bin/neo4j-admin import --nodes=../ccks2019-ckbqa-4th-codes/node.csv --relationships=../ccks2019-ckbqa-4th-codes/relation.csv
   ### 训练流程（按顺序）：
+  - 下载PKUBASE知识库，用 生成neo4j文件和各种词典.ipynb 生成node.csv与relation.csv，用这两个文件可以导入neo4j数据库
+  - helper/LoadCorpus.py 分析问答数据集语料 生成data/corpus_test&train&valid.pkl
   - train_ner.py 根据语料集反向标注问题，训练一个NER模型
   - mention_extractor.py: 同时使用jieba分词和bert序列标注来抽取问题中的实体mention
   - prop_extractor.py: 使用规则抽取问题中的属性值

@@ -5,3 +5,14 @@ src/chinese_L-12_H-768_A-12/bert_model.ckpt.index
 src/chinese_L-12_H-768_A-12/bert_model.ckpt.data-00000-of-00001
 src/chinese_L-12_H-768_A-12/bert_config.json
 PKUBASE/pkubase-mention2ent.txt
+tensorflow-base-1.14.0-gpu_py36he45bfe2_0.conda
+chinese_L-12_H-768_A-12.zip
+node.csv
+relation.csv
+tf_test.py
+.vscode/settings.json
+src/prop_dic.pkl
+src/type_dic.pkl
+pkubase-mention2ent-2020.zip
+pkubase-complete-2020.zip
+nohup.out

@@ -16,9 +16,9 @@ from keras.models import Model,load_model
 from keras.optimizers import Adam
 
 max_seq_len = 20
-config_path = '../../news_classifer_task/wwm/bert_config.json'
-checkpoint_path = '../../news_classifer_task/wwm/bert_model.ckpt'
-dict_path = '../../news_classifer_task/wwm/vocab.txt'
+config_path = 'chinese_L-12_H-768_A-12/bert_config.json'
+checkpoint_path = 'chinese_L-12_H-768_A-12/bert_model.ckpt'
+dict_path = 'chinese_L-12_H-768_A-12/vocab.txt'
 
 token_dict = {}
 with codecs.open(dict_path, 'r', 'utf8') as reader:
@@ -29,7 +29,9 @@ with codecs.open(dict_path, 'r', 'utf8') as reader:
 train_corpus = pickle.load(open('../data/corpus_train.pkl','rb'))
 train_questions = [train_corpus[i]['question'] for i in range(len(train_corpus))]
 train_entitys = [train_corpus[i]['gold_entitys'] for i in range(len(train_corpus))]
-train_entitys = [[entity[1:-1].split('_')[0] for entity in line]for line in train_entitys]
+train_entitys = [[entity[1:-1].split('_')[0] for entity in line]for line in train_entitys] 
+# 去除entity的尖括号"<>"与"_"后的备注信息，如 "<德国_（德意志联邦共和国）>"  ->  "德国"
+
 
 test_corpus = pickle.load(open('../data/corpus_test.pkl','rb'))
 test_questions = [test_corpus[i]['question'] for i in range(len(test_corpus))]
